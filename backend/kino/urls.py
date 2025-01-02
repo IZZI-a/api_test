@@ -4,5 +4,5 @@ from kino import views
 app_name = 'kino'
 
 urlpatterns = [
-    path('', views.index, name='home'),
+    path('', views.base, name='home'),
 ]

@@ -1,0 +1,16 @@
+{% extends 'pirate/base.html' %}
+
+{% block title %}Список Репаков{% endblock %}
+
+{% block content %}
+<h1>Список Репаков</h1>
+<ul class="list-group">
+    {% for download in downloads %}
+        <li class="list-group-item">
+            <strong>{{ download.title }}</strong> ({{ download.fileSize }}) 
+            <br>
+            <a href="{{ download.uris.0 }}" target="_blank" class="btn btn-primary">Скачать</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

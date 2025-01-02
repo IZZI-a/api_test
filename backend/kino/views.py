@@ -1,4 +1,5 @@
-from django.http import HttpResponse
-  
-def index(request):
-    return HttpResponse("Hello DJANGO!")
+from django.http import request
+from django.shortcuts import render
+
+def base(request):
+    return render(request, "kino/base.html")

@@ -20,6 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('kino/', include('kino.urls', namespace='kino')),
+    path('pirate/', include('pirate.urls', namespace='pirate')),
     path('admin/', admin.site.urls),
 ]
 
