@@ -1,6 +1,25 @@
 import requests
 from django.shortcuts import render
 
+from pirate.models import Reestr
+
+
+def list_reestr(request):
+    """Вывод списка всех адресов"""
+
+    reestr = Reestr.objects.all()
+    return render(request, "pirate/reestr_list.html", context={"reestr": reestr})
+
+
+def reestr_detail(request, pk):
+    """Вывод детальных данных"""
+
+    book = Reestr.objects.get(pk=pk)
+    response = requests.get(book.url)
+    data = response.json()
+
+    data = data.get("downloads", [])
+    return render(request, "pirate/pirate_list.html", {"data": data})
 
 def gog_list(request):
     response = requests.get("https://hydralinks.cloud/sources/gog.json")
