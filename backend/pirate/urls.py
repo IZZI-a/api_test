@@ -1,8 +1,10 @@
 from django.urls import path
-from pirate.views import gog_list
+from pirate.views import list_reestr, reestr_detail
 
 app_name = 'pirate'
 
 urlpatterns = [
-    path('', gog_list ,name='gog_list'),
+    path('', list_reestr ,name='list_reestr'),
+    path("reestr-detail/<int:pk>/", reestr_detail, name='reestr_detail'),
+
 ]

@@ -5,11 +5,11 @@
 {% block content %}
 <h1>Список Репаков</h1>
 <ul class="list-group">
-    {% for download in data %}
+    {% for r in reestr %}
         <li class="list-group-item">
-            <strong>{{ download.title }}</strong> ({{ download.fileSize }}) 
+            <strong>{{ r.title }}</strong> ({{ r.title }}) 
             <br>
-            <a href="{{ download.uris.0 }}" target="_blank" class="btn btn-primary">Скачать</a>
+            <a href="{% url 'pirate:reestr_detail' pk=r.pk %}" target="_blank" class="btn btn-primary">Скачать</a>
         </li>
     {% endfor %}
 </ul>
